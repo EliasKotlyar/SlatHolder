@@ -11,7 +11,7 @@ breite=58;
 laenge=28.3;
 hoehe=12.6;
 cube_locn = [breite, laenge, hoehe];
-text_on_cube("V2",locn_vec=[0,0,0],cube_size=cube_locn,face="bottom",center=true);
+text_on_cube("V3",locn_vec=[0,0,-0.1],cube_size=cube_locn,face="bottom",center=true,extrusion_height=1.6,size=10,updown=0);
 
 difference(){
     cube(cube_locn, center=true);
@@ -26,15 +26,17 @@ radius_pin = 3.5;
 
 
 copy_mirror([1,0,0]){
-    translate([breite/2 - abstand_zum_rand-0.2,0,-hoehe+wandstaerke]){
+    translate([breite/2 - abstand_zum_rand-1.5,0,-hoehe+wandstaerke]){
         difference(){
             union(){
                 cylinder(h=hoehe_pin, r=3.5,center=true);
-                translate([0,0,-5]){
-                    sphere(r=5.4);           
+                translate([0,0,-3]){
+                    sphere(r=5);           
                 } 
             }
-            cube([2, 10, 5], center=true);              
+            translate([0,0,-6]){
+            cube([2, 15, 15], center=true);              
+            }
         } 
         
     }
